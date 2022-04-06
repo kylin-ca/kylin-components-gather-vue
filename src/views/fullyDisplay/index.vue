@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2022-02-07 16:03:16
- * @LastEditTime: 2022-02-07 16:18:57
+ * @LastEditTime: 2022-02-24 14:13:06
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \vue-admin-template-master\src\views\fullyDisplay\index.vue
@@ -37,6 +37,7 @@ export default {
   background-color: #dcdfe6;
   cursor: pointer;
   color: #000;
+  padding: 0 5px;
   margin-right: 15px;
   line-height: 30px;
   font-size: 14px;

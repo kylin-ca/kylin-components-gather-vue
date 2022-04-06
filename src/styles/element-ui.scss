@@ -1,49 +1,88 @@
 // cover some element-ui styles
-
 .el-breadcrumb__inner,
 .el-breadcrumb__inner a {
-  font-weight: 400 !important;
+    font-weight: 400 !important;
 }
 
 .el-upload {
-  input[type="file"] {
-    display: none !important;
-  }
+    input[type="file"] {
+        display: none !important;
+    }
 }
 
 .el-upload__input {
-  display: none;
+    display: none;
 }
-
 
 // to fixed https://github.com/ElemeFE/element/issues/2461
 .el-dialog {
-  transform: none;
-  left: 0;
-  position: relative;
-  margin: 0 auto;
+    transform: none;
+    left: 0;
+    position: relative;
+    margin: 0 auto;
 }
 
 // refine element ui upload
 .upload-container {
-  .el-upload {
-    width: 100%;
-
-    .el-upload-dragger {
-      width: 100%;
-      height: 200px;
+    .el-upload {
+        width: 100%;
+        .el-upload-dragger {
+            width: 100%;
+            height: 200px;
+        }
     }
-  }
 }
 
 // dropdown
 .el-dropdown-menu {
-  a {
-    display: block
-  }
+    a {
+        display: block
+    }
 }
 
+//element 树箭头改为加减号
 // to fix el-date-picker css style
-.el-range-separator {
-  box-sizing: content-box;
-}
+// .el-range-separator {
+//     box-sizing: content-box;
+// }
+// .el-tree .el-tree-node__expand-icon.expanded {
+//     -webkit-transform: rotate(0deg);
+//     transform: rotate(0deg);
+// }
+// .el-tree .el-tree-node__expand-icon.expanded {
+//     -webkit-transform: rotate(0deg);
+//     transform: rotate(0deg);
+// }
+// .el-tree {
+//     user-select: none;
+// }
+// //有子节点 且未展开
+// .el-tree .el-icon-caret-right:before {
+//     background: url('../assets/open.png') no-repeat 0 3px;
+//     content: '';
+//     display: block;
+//     width: 16px;
+//     height: 22px;
+//     font-size: 16px;
+//     background-size: 16px;
+// }
+// //有子节点 且已展开
+// .el-tree .el-tree-node__expand-icon.expanded.el-icon-caret-right:before {
+//     background: url('../assets/close.png') no-repeat 0 3px;
+//     content: '';
+//     display: block;
+//     width: 16px;
+//     height: 22px;
+//     font-size: 16px;
+//     background-size: 16px;
+// }
+// //没有子节点
+// .el-tree .el-tree-node__expand-icon.is-leaf::before {
+//     background: #fff;
+//     content: '';
+//     display: block;
+//     width: 0px;
+//     height: 0px;
+//     font-size: 0px;
+//     background-size: 0px;
+// }

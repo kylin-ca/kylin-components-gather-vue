@@ -238,6 +238,78 @@ export const constantRoutes = [{
             meta: { title: 'virtualList', icon: 'el-icon-tickets' }
         }]
     },
+    {
+        path: '/elselect',
+        component: Layout,
+        redirect: '/elselect/index',
+        children: [{
+            path: 'index',
+            component: () =>
+                import ('@/views/elselect/index'),
+            name: 'elselect',
+            meta: { title: 'elselect', icon: 'el-icon-tickets' }
+        }]
+    },
+    {
+        path: '/dottedLineAnimation',
+        component: Layout,
+        redirect: '/dottedLineAnimation/index',
+        children: [{
+            path: 'index',
+            component: () =>
+                import ('@/views/dottedLineAnimation/index'),
+            name: 'dottedLineAnimation',
+            meta: { title: 'dottedLineAnimation', icon: 'el-icon-tickets' }
+        }]
+    },
+    {
+        path: '/splitPane',
+        component: Layout,
+        redirect: '/splitPane/index',
+        children: [{
+            path: 'index',
+            component: () =>
+                import ('@/views/splitPane/index'),
+            name: 'splitPane',
+            meta: { title: 'splitPane', icon: 'el-icon-tickets' }
+        }]
+    },
+    {
+        path: '/histogram',
+        component: Layout,
+        redirect: '/histogram/index',
+        children: [{
+            path: 'index',
+            component: () =>
+                import ('@/views/histogram/index'),
+            name: 'histogram',
+            meta: { title: 'histogram', icon: 'el-icon-tickets' }
+        }]
+    },
+    {
+        path: '/commonLeftArea',
+        component: Layout,
+        redirect: '/commonLeftArea/index',
+        children: [{
+            path: 'index',
+            component: () =>
+                import ('@/views/commonLeftArea/index'),
+            name: 'commonLeftArea',
+            meta: { title: 'commonLeftArea', icon: 'el-icon-tickets' }
+        }]
+    },
+    {
+        path: '/editable',
+        component: Layout,
+        redirect: '/editable/index',
+        children: [{
+            path: 'index',
+            component: () =>
+                import ('@/views/editable/index'),
+            name: 'editable',
+            meta: { title: 'editable', icon: 'el-icon-tickets' }
+        }]
+    },
     // {
     //     path: 'external-link',
     //     component: Layout,
