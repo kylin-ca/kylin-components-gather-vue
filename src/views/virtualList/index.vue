@@ -14,10 +14,11 @@
         <div
           ref="items"
           class="infinite-list-item"
-          v-for="item in visibleData"
+          v-for="(item,index) in visibleData"
           :key="item.id"
           :style="{ height: itemSize + 'px', lineHeight: itemSize + 'px' }"
         >
+          <span v-if="item.haschildren" @click="addchildren(index)">+</span>
           {{ item.value }}
         </div>
       </div>
@@ -43,6 +44,7 @@ export default {
       start: 0,
       //结束索引
       end: null,
+      children: [],
     }
   },
   computed: {
@@ -67,8 +69,14 @@ export default {
     },
   },
   created() {
+    for (let i = 0; i < 1000; i++) {
+      this.children.push({
+        id: i,
+        value: '我是子节点',
+      })
+    }
     for (let i = 0; i < 30000; i++) {
-      this.listData.push({ id: i, value: i })
+      this.listData.push({ id: i, value: i,haschildren: true })
     }
   },
   mounted() {
@@ -77,6 +85,9 @@ export default {
     this.end = this.start + this.visibleCount
   },
   methods: {
+    addchildren(index){
+      this.listData.splice(index +1,0,...this.children)
+    },
     scrollEvent() {
       //当前滚动位置
       let scrollTop = this.$refs.list.scrollTop

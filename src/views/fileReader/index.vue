@@ -1,5 +1,5 @@
 <template>
-  <div class="filereader-container">
+  <div class="filereader-container" ref="mainContainer">
     <el-row>
       <el-col :span="6">
         读取方式：<el-select v-model="value" placeholder="请选择">
@@ -66,6 +66,11 @@ export default {
         },
       ],
     }
+  },
+  created(){
+    setTimeout(()=>{
+      console.log(this.$refs)
+    },5000)
   },
   methods: {
     handleRemove(file, fileList) {

@@ -1,7 +1,7 @@
 <!--
- * @Author: your name
+ * @Author: chenang
  * @Date: 2022-03-16 15:05:32
- * @LastEditTime: 2022-03-22 17:20:17
+ * @LastEditTime: 2022-04-11 17:00:03
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \kylin-components-gather-vue\src\components\SelectTree\index.vue
@@ -12,12 +12,13 @@
     placeholder="请选择父级菜单"
     clearable
     size="mini"
-    ref="tree"
+    ref="selectTree"
+    @clear="onClear"
   >
-    <div class="input-b">
-      <search-input @search="listSearch"/>
+    <div class="input-b" v-if="searchable">
+      <search-input ref="searchInput" @search="listSearch" />
     </div>
-    <el-option  value=""  v-show="false" class="option-h"> </el-option>
+    <el-option value="" v-show="false" class="option-h"> </el-option>
     <div class="tree-p">
       <el-tree
         highlight-current
@@ -25,6 +26,8 @@
         size="mini"
         :props="defaultProps"
         node-key="id"
+        ref="tree"
+        :current-node-key="currentNodekey"
         :default-expanded-keys="expandedKeys"
         @node-click="handleNodeClick"
       >
@@ -131,6 +134,10 @@ export default {
         ]
       },
     },
+    searchable:{
+      type: Boolean,
+      default: false
+    }
   },
   watch: {
     treeData: {
@@ -145,27 +152,72 @@ export default {
   data() {
     return {
       selectValue: {
-        label: '',
-        value: ''
+        label: '三级 3-2-1',
+        value: '13',
       },
       searchValue: '',
       myTreeData: [],
       expandedKeys: [],
       // 存放树形的源数据
+      currentNodekey: '',
     }
   },
+  mounted() {
+    this.setNode(this.treeData, this.selectValue.value)
+  },
   methods: {
+    //数据清空
+    onClear() {
+      this.selectValue = {
+        label: '',
+        value: '',
+      }
+      this.myTreeData = deepCopy(this.treeData)
+      this.currentNodekey = ''
+      this.expandedKeys = []
+      if(this.searchable){
+        this.$refs.searchInput.searchValue = ''
+      }
+      
+    },
     // 树形下拉点击调用
     handleNodeClick(data) {
       if (data.children) return
       console.log(data)
       this.selectValue = {
-        ...data
+        ...data,
       }
-      this.$refs.tree.blur()
+      this.$refs.selectTree.blur()
+    },
+    setNode(list, value) {
+      list.forEach((i) => {
+        if (i.id === value) {
+          this.expandedKeys.push(i.id)
+          this.currentNodekey = i.id
+          this.$refs.tree.setCurrentKey(i.id)
+        }
+        if (i.children && i.children.length > 0) {
+          this.setNode(i.children, value)
+        }
+      })
     },
     //搜索框回调
     listSearch(value) {
+ this.tableFliter(this.tableData, value, [])
+      list.forEach((i) => {
+        if (i.nodeName.includes(value) && value !== '') {
+          i.search = true
+          parentList.map((i) => {
+            i.searchP = true
+          })
+        }
+        if (i.children && i.children.length > 0) {
+          parentList.push(i)
+          this.tableFliter(i.children, value, parentList)
+        }
+      })
+
+      
       this.myTreeData = deepCopy(this.treeData)
       this.expandedKeys = []
       this.washTreeData(this.myTreeData)
@@ -221,7 +273,7 @@ export default {
 }
 .tree-p {
   padding: 0 8px;
-  height: 220px;
+  max-height: 220px;
   overflow-y: auto;
 }
 .select {

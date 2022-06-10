@@ -310,6 +310,30 @@ export const constantRoutes = [{
             meta: { title: 'editable', icon: 'el-icon-tickets' }
         }]
     },
+    {
+        path: '/input',
+        component: Layout,
+        redirect: '/input/index',
+        children: [{
+            path: 'index',
+            component: () =>
+                import ('@/views/input/index'),
+            name: 'input',
+            meta: { title: 'input', icon: 'el-icon-tickets' }
+        }]
+    },
+    {
+        path: '/formConstruction',
+        component: Layout,
+        redirect: '/formConstruction/index',
+        children: [{
+            path: 'index',
+            component: () =>
+                import ('@/views/formConstruction/index'),
+            name: 'input',
+            meta: { title: 'formConstruction', icon: 'el-icon-tickets' }
+        }]
+    },
     // {
     //     path: 'external-link',
     //     component: Layout,

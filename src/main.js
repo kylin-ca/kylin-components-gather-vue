@@ -1,8 +1,8 @@
 /*
  * @Author: your name
  * @Date: 2022-01-13 16:32:53
- * @LastEditTime: 2022-03-17 15:44:10
- * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2022-06-10 14:56:35
+ * @LastEditors: DESKTOP-8N940R6\try 929592071@qq.com
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \kylin-components-gather-vue\src\main.js
  */
@@ -13,7 +13,7 @@ import 'normalize.css/normalize.css' // A modern alternative to CSS resets
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import locale from 'element-ui/lib/locale/lang/en' // lang i18n
-
+import plugins from './plugins' // plugins
 import '@/styles/index.scss' // global css
 
 import App from './App'
@@ -35,8 +35,8 @@ if (process.env.NODE_ENV === 'production') {
     const { mockXHR } = require('../mock')
     mockXHR()
 }
-
-// set ElementUI lang to EN
+Vue.use(plugins)
+    // set ElementUI lang to EN
 Vue.use(ElementUI, { locale })
     // 如果想要中文版 element-ui，按如下方式声明
     // Vue.use(ElementUI)
