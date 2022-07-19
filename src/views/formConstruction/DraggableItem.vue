@@ -1,3 +1,10 @@
+<!--
+ * @Description: 
+ * @Author: chenang
+ * @Date: 2022-06-10 14:43:52
+ * @LastEditors: chenang
+ * @LastEditTime: 2022-07-06 10:16:09
+-->
 <script>
 import draggable from 'vuedraggable'
 import render from '@/utils/generator/render'
@@ -90,7 +97,6 @@ export default {
   ],
   render(h) {
     const layout = layouts[this.element.layout]
-
     if (layout) {
       return layout.call(this, h, this.element, this.index, this.drawingList)
     }

@@ -1,8 +1,8 @@
 /*
  * @Author: your name
  * @Date: 2022-01-13 16:32:53
- * @LastEditTime: 2022-06-10 14:56:35
- * @LastEditors: DESKTOP-8N940R6\try 929592071@qq.com
+ * @LastEditTime: 2022-07-11 16:00:50
+ * @LastEditors: chenang
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \kylin-components-gather-vue\src\main.js
  */

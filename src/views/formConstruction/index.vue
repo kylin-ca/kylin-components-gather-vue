@@ -265,7 +265,6 @@ export default {
     generate(data) {
       const func = this[`exec${titleCase(this.operationType)}`]
       this.generateConf = data
-      console.log(titleCase(this.operationType),data)
       func && func(data)
     },
     execRun(data) {

@@ -247,3 +247,13 @@ export function camelCase(str) {
 export function isNumberStr(str) {
     return /^[+-]?(0|([1-9]\d*))(\.\d+)?$/g.test(str)
 }
+
+ //随机字符串
+ export function randomString(e) {
+    e = e || 32;
+    var t = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678',
+      a = t.length,
+      n = '';
+    for (let i = 0; i < e; i++) n += t.charAt(Math.floor(Math.random() * a));
+    return n;
+  }

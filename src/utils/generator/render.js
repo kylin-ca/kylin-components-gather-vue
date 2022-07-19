@@ -120,6 +120,8 @@ export default {
         dataObject.attrs[key] = val
       }
     })
+    console.log(this.conf.tag)
+    console.log(dataObject)
     return h(this.conf.tag, dataObject, children)
   },
   props: ['conf']

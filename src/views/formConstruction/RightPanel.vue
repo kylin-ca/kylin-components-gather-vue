@@ -782,7 +782,9 @@ export default {
       item.value = isNumberStr(val) ? +val : val
     },
     setDefaultValue(val) {
+      
       if (Array.isArray(val)) {
+        console.log(val.join(','))
         return val.join(',')
       }
       if (['string', 'number'].indexOf(val) > -1) {
